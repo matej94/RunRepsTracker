@@ -12,6 +12,7 @@ public class RunActivity extends AppCompatActivity {
         setContentView(R.layout.activity_run);
         setUpUI();
     }
+
     private void setUpUI(){
         RunTv = (TextView) findViewById(R.id.RunTv);
     }

@@ -12,6 +12,7 @@ public class SitUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sit_up);
         setUpUI();
     }
+
     private void setUpUI(){
         SitUpTv = (TextView) findViewById(R.id.SitUpTv);
     }

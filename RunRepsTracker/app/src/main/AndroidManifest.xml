@@ -19,5 +19,5 @@
         <activity android:name=".SitUpActivity" />
         <activity android:name=".RunActivity"></activity>
     </application>
-
+    <uses-feature android:name="android.hardware.sensor.proximity" android:required="true" />
 </manifest>

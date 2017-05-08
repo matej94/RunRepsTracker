@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setUpUI();
     }
+
     private void setUpUI(){
         AppTitleTv = (TextView) findViewById(R.id.AppTitleTv);
         PushUpBtn = (Button) findViewById(R.id.PushUpBtn);

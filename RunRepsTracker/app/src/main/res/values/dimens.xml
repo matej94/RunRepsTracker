@@ -3,4 +3,5 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="size_of_app_title">18sp</dimen>
+    <dimen name="size_of_counter">100sp</dimen>
 </resources>
