@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_sit_up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.matej.runrepstracker.SitUpActivity">
+   >
     <TextView
         android:id="@+id/SitUpTv"
         android:layout_width="match_parent"
@@ -16,5 +16,58 @@
         android:text="This is SitUpActivity"
         android:textAlignment="center"
         android:textSize="@dimen/size_of_app_title"
+        android:paddingBottom="@dimen/activity_vertical_margin"
         />
+
+    <TextView
+        android:id="@+id/SitUpCountTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SitUpTv"
+        android:textAlignment="center"
+        android:text="0"
+        android:textSize="@dimen/size_of_counter"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        />
+
+    <Button
+        android:id="@+id/ResetBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SitUpCountTv"
+        android:text="RESET"
+        android:textAlignment="center"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        />
+    <TextView
+        android:id="@+id/textx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ResetBtn"
+        android:textAlignment="center"
+        android:text="0"
+        android:textSize="15sp"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        />
+    <TextView
+        android:id="@+id/texty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textx"
+        android:textAlignment="center"
+        android:text="0"
+        android:textSize="15sp"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        />
+    <TextView
+        android:id="@+id/textz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/texty"
+        android:textAlignment="center"
+        android:text="0"
+        android:textSize="15sp"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        />
+
 </RelativeLayout>
