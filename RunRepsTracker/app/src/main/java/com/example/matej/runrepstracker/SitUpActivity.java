@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class SitUpActivity extends AppCompatActivity implements SensorEventListener {
     TextView SitUpTv, SitUpCountTv, textX, textY, textZ;
-    Button ResetBtn;
+    Button ResetBtn,SaveBtn;
     SensorManager sensorManager;
     Sensor AccelerometerSensor;
     int SitUpCounter = 0;
@@ -30,6 +30,7 @@ public class SitUpActivity extends AppCompatActivity implements SensorEventListe
         SitUpTv = (TextView) findViewById(R.id.SitUpTv);
         SitUpCountTv = (TextView) findViewById(R.id.SitUpCountTv);
         ResetBtn = (Button) findViewById(R.id.ResetBtn);
+        SaveBtn = (Button) findViewById(R.id.SaveBtn);
         textX = (TextView) findViewById(R.id.textx);
         textY = (TextView) findViewById(R.id.texty);
         textZ = (TextView) findViewById(R.id.textz);

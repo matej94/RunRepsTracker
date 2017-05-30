@@ -12,10 +12,11 @@ import android.widget.TextView;
 
 public class PushUpActivity extends AppCompatActivity implements SensorEventListener {
     TextView PushUpTv, PushUpCountTv;
-    Button ResetBtn;
+    Button ResetBtn,SaveBtn;
     SensorManager sensorManager;
     Sensor ProximitySensor;
     int PushUpCounter = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,8 @@ public class PushUpActivity extends AppCompatActivity implements SensorEventList
     private void setUpUI(){
             PushUpTv = (TextView) findViewById(R.id.PushUpTv);
             ResetBtn = (Button) findViewById(R.id.ResetBtn);
-            PushUpCountTv = (TextView) findViewById(R.id.PushUpCountTv);
+            SaveBtn = (Button) findViewById(R.id.SaveBtn);
+        PushUpCountTv = (TextView) findViewById(R.id.PushUpCountTv);
 
         ResetBtn.setOnClickListener(new View.OnClickListener() {
             @Override

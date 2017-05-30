@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.matej.runrepstracker">
 
+
+    <uses-feature
+        android:name="android.hardware.sensor.proximity"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,12 +25,9 @@
         </activity>
         <activity android:name=".PushUpActivity" />
         <activity android:name=".SitUpActivity" />
-        <activity android:name=".RunActivity"></activity>
+        <activity android:name=".RunActivity" />
+        <activity android:name=".ResultHistoryActivity"></activity>
+
     </application>
-    <uses-feature
-        android:name="android.hardware.sensor.proximity"
-        android:required="true" />
-    <uses-feature
-        android:name="android.hardware.sensor.accelerometer"
-        android:required="true" />
+
 </manifest>

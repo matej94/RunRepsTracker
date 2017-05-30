@@ -5,11 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView AppTitleTv;
-    Button PushUpBtn, SitUpBtn, RunBtn;
+    Button PushUpBtn, SitUpBtn, RunBtn, ResultHistoryBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpUI(){
         AppTitleTv = (TextView) findViewById(R.id.AppTitleTv);
+        ResultHistoryBtn = (Button) findViewById(R.id.ResultHistoryBtn);
+        ResultHistoryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent explicitIntent = new Intent();
+                explicitIntent.setClass(getApplicationContext(),ResultHistoryActivity.class);
+                startActivity(explicitIntent);
+            }
+        });
         PushUpBtn = (Button) findViewById(R.id.PushUpBtn);
         PushUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
