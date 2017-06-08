@@ -48,11 +48,21 @@
         android:id="@+id/SaveBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ResetBtn"
+        android:layout_below="@+id/SetNumberEt"
         android:text="SAVE"
         android:textAlignment="center"
         android:background="@color/countercolor"
         android:textColor="@color/btntextcolor"
         android:layout_margin="@dimen/activity_vertical_margin"
+        />
+    <EditText
+        android:id="@+id/SetNumberEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ResetBtn"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:textColor="@color/btntextcolor"
+        android:hint="Enter number of sets"
+        android:textColorHint="@color/btntextcolor"
         />
 </RelativeLayout>
