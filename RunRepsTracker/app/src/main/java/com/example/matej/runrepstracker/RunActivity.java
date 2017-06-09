@@ -1,12 +1,7 @@
 package com.example.matej.runrepstracker;
 
-import android.*;
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
 
 
 

@@ -12,16 +12,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class PushUpActivity extends AppCompatActivity implements SensorEventListener {
+    public static final String KEY_PUSHUP = "input pushup";
+    public static final String KEY_SETS = "input sets";
+
+
     TextView PushUpTv, PushUpCountTv;
     EditText SetNumberEt;
     Button ResetBtn, SaveBtn;
     SensorManager sensorManager;
     Sensor ProximitySensor;
     int PushUpCounter = 0;
-
+    ListView lvPushUpHistory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,14 +33,13 @@ public class PushUpActivity extends AppCompatActivity implements SensorEventList
         ProximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         setUpUI();
     }
-
-    private void setUpUI() {
+        private void setUpUI(){
+        lvPushUpHistory = (ListView) findViewById(R.id.lvPushUpHistory);
         PushUpTv = (TextView) findViewById(R.id.PushUpTv);
         ResetBtn = (Button) findViewById(R.id.ResetBtn);
         SaveBtn = (Button) findViewById(R.id.SaveBtn);
         SetNumberEt = (EditText) findViewById(R.id.SetNumberEt);
         PushUpCountTv = (TextView) findViewById(R.id.PushUpCountTv);
-
         ResetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +47,23 @@ public class PushUpActivity extends AppCompatActivity implements SensorEventList
                 PushUpCountTv.setText(String.valueOf(PushUpCounter));
             }
         });
+        SaveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sPushUp = null, sSets = null;
 
+                    sPushUp = PushUpCountTv.getText().toString();
+                    sSets = SetNumberEt.getText().toString();
+
+                    Intent explicitIntent = new Intent();
+
+                    explicitIntent.putExtra(KEY_PUSHUP, sPushUp);
+                    explicitIntent.putExtra(KEY_SETS, sSets);
+                    explicitIntent.setClass(getApplicationContext(), PushUpHistoryActivity.class);
+                    startActivity(explicitIntent);
+                }
+
+        });
     }
 
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -70,8 +88,6 @@ public class PushUpActivity extends AppCompatActivity implements SensorEventList
         super.onPause();
         sensorManager.unregisterListener(this);
     }
-
-
 
 }
 
