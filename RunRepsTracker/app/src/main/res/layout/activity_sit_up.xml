@@ -49,45 +49,23 @@
         android:id="@+id/SaveBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ResetBtn"
+        android:layout_below="@+id/SetNumberEt"
         android:text="SAVE"
         android:textAlignment="center"
         android:background="@color/countercolor"
         android:textColor="@color/btntextcolor"
         android:layout_margin="@dimen/activity_vertical_margin"
         />
-    <TextView
-        android:id="@+id/textx"
+    <EditText
+        android:id="@+id/SetNumberEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/SaveBtn"
-        android:textAlignment="center"
-        android:text="0"
+        android:layout_below="@+id/ResetBtn"
+        android:layout_margin="@dimen/activity_vertical_margin"
         android:textColor="@color/btntextcolor"
-        android:textSize="15sp"
-        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:hint="Enter number of sets"
+        android:textColorHint="@color/btntextcolor"
         />
-    <TextView
-        android:id="@+id/texty"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textx"
-        android:textAlignment="center"
-        android:text="0"
-        android:textColor="@color/btntextcolor"
-        android:textSize="15sp"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        />
-    <TextView
-        android:id="@+id/textz"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/texty"
-        android:textAlignment="center"
-        android:text="0"
-        android:textColor="@color/btntextcolor"
-        android:textSize="15sp"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        />
+
 
 </RelativeLayout>

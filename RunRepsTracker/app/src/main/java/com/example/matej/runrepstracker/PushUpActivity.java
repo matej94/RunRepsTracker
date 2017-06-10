@@ -24,7 +24,6 @@ public class PushUpActivity extends AppCompatActivity implements SensorEventList
     SensorManager sensorManager;
     Sensor ProximitySensor;
     int PushUpCounter = 0;
-    ListView lvPushUpHistory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +33,6 @@ public class PushUpActivity extends AppCompatActivity implements SensorEventList
         setUpUI();
     }
         private void setUpUI(){
-        lvPushUpHistory = (ListView) findViewById(R.id.lvPushUpHistory);
         PushUpTv = (TextView) findViewById(R.id.PushUpTv);
         ResetBtn = (Button) findViewById(R.id.ResetBtn);
         SaveBtn = (Button) findViewById(R.id.SaveBtn);
