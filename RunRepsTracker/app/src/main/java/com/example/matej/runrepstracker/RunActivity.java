@@ -2,6 +2,7 @@ package com.example.matej.runrepstracker;
 
 import android.*;
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -40,10 +41,12 @@ import java.util.List;
 public class RunActivity extends FragmentActivity implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         com.google.android.gms.location.LocationListener {
-
+    public static final String KEY_TIME = "input time";
+    public static final String KEY_DIST = "input dist";
     private Button mStartButton;
     private Button mStopButton;
     private Button mResetButton;
+    private Button mSaveButton;
     private Chronometer mChronometer;
     private TextView distanceTv;
 
@@ -68,6 +71,7 @@ public class RunActivity extends FragmentActivity implements OnMapReadyCallback,
         mStartButton = (Button) findViewById(R.id.StartBtn);
         mStopButton = (Button) findViewById(R.id.StopBtn);
         mResetButton = (Button) findViewById(R.id.ResetBtn);
+        mSaveButton = (Button) findViewById(R.id.SaveBtn);
         mChronometer = (Chronometer) findViewById(R.id.chronometer);
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +107,22 @@ public class RunActivity extends FragmentActivity implements OnMapReadyCallback,
                 lastPause = 0;
                 mStartButton.setEnabled(true);
                 mStopButton.setEnabled(false);
+            }
+        });
+        mSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sTime = null, sDist = null;
+
+                sTime = mChronometer.getText().toString();
+                sDist = distanceTv.getText().toString();
+
+                Intent explicitIntent = new Intent();
+
+                explicitIntent.putExtra(KEY_TIME, sTime);
+                explicitIntent.putExtra(KEY_DIST, sDist);
+                explicitIntent.setClass(getApplicationContext(), RunHistoryActivity.class);
+                startActivity(explicitIntent);
             }
         });
 
