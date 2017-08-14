@@ -6,10 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class ResultHistoryActivity extends AppCompatActivity {
     Button PushUpHistoryBtn,SitUpHistoryBtn,RunHistoryBtn;
+    TextView QuoteTv;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +19,7 @@ public class ResultHistoryActivity extends AppCompatActivity {
         this.setUpUI();
     }
 private void setUpUI(){
-
+    QuoteTv = (TextView) findViewById(R.id.QuoteTv);
     PushUpHistoryBtn = (Button) findViewById(R.id.PushUpHistoryBtn);
     SitUpHistoryBtn = (Button) findViewById(R.id.SitUpHistoryBtn);
     RunHistoryBtn = (Button) findViewById(R.id.RunHistoryBtn);

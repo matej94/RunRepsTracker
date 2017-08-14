@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="size_of_app_title">18sp</dimen>
     <dimen name="size_of_counter">100sp</dimen>
+    <dimen name="quote_size">24sp</dimen>
 </resources>

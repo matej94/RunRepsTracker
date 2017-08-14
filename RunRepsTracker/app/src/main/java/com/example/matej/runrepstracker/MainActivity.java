@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView AppTitleTv;
-    Button PushUpBtn, SitUpBtn, RunBtn, ResultHistoryBtn;
+    Button PushUpBtn, SitUpBtn, RunBtn, ResultHistoryBtn,AboutBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent explicitIntent = new Intent();
                 explicitIntent.setClass(getApplicationContext(),RunActivity.class);
+                startActivity(explicitIntent);
+            }
+        });
+        AboutBtn = (Button) findViewById(R.id.AboutBtn);
+        AboutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent explicitIntent = new Intent();
+                explicitIntent.setClass(getApplicationContext(),AboutActivity.class);
                 startActivity(explicitIntent);
             }
         });

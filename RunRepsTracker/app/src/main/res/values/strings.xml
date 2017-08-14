@@ -1,5 +1,25 @@
 <resources>
     <string name="app_name">RunRepsTracker</string>
     <string name="title_activity_run">Map</string>
-
+    <string name="main_text">
+        “If something stands between you and your success, move it. Never be denied.”
+    </string>
+    <string name="about_app">
+        RunRepsTracker is an application for running and exercising and provides a simple and easy way to track your results.
+    </string>
+    <string name="about_pushup">
+        The PushUp button opens a new screen that provides the ability to count the pushups, set the number of repetitions and save the results to the database.
+    </string>
+    <string name="about_situp">
+        The SitUp button opens a new screen that provides the ability to count the situps, set the number of repetitions and save the results to the database.
+    </string>
+     <string name="about_run">
+    The Run button opens a new screen that shows the current location, draws a path and allows you to measure the time and distance.
+     </string>
+    <string name="about_result">
+    The ResultHistory button opens a new screen that provides the option to select the history of pushup, situp, and running results.
+    </string>
+    <string name="results_quote" >
+        “Results happen\n over time,\n not overnight.\n Work hard, stay consistent\n and\n be patient.”
+    </string>
 </resources>

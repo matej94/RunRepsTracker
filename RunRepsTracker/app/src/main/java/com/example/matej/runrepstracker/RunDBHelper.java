@@ -77,7 +77,7 @@ public class RunDBHelper extends SQLiteOpenHelper {
         private static final int SCHEMA_VERSION = 1;
         private static final String DATABASE_NAME = "run_results.db";
         static final String ID = "id";
-        static final String TABLE_MY_RUN_RESULTS = "my_situp_results";
+        static final String TABLE_MY_RUN_RESULTS = "my_run_results";
         static final String TIME = "time";
         static final String DIST = "dist";
     }

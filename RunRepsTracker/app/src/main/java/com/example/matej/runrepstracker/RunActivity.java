@@ -36,6 +36,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class RunActivity extends FragmentActivity implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks,
@@ -73,6 +74,8 @@ public class RunActivity extends FragmentActivity implements OnMapReadyCallback,
         mResetButton = (Button) findViewById(R.id.ResetBtn);
         mSaveButton = (Button) findViewById(R.id.SaveBtn);
         mChronometer = (Chronometer) findViewById(R.id.chronometer);
+
+
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,6 +129,7 @@ public class RunActivity extends FragmentActivity implements OnMapReadyCallback,
             }
         });
 
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -143,7 +147,7 @@ public class RunActivity extends FragmentActivity implements OnMapReadyCallback,
         map = googleMap;
 
         PolylineOptions polylineOptions = new PolylineOptions();
-        polylineOptions.color(Color.CYAN);
+        polylineOptions.color(Color.RED);
         polylineOptions.width(4);
         gpsTrack = map.addPolyline(polylineOptions);
 
