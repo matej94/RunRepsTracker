@@ -1,68 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_push_up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/appbackground"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     >
-    <TextView
-        android:id="@+id/PushUpTv"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is PushUpActivity"
-        android:textAlignment="center"
-        android:textSize="@dimen/size_of_app_title"
-        android:textColor="@color/apptextcolor"
-        android:layout_margin="@dimen/activity_vertical_margin"
-        />
-    <TextView
-        android:id="@+id/PushUpCountTv"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <TextView
+            android:id="@+id/PushUpTextTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="PushUps per set:"
+            android:textSize="@dimen/size_of_app_title"
+            android:textColor="@color/apptextcolor"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            />
+        <TextView
+            android:id="@+id/SetTextTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="Sets:"
+            android:textSize="@dimen/size_of_app_title"
+            android:textColor="@color/apptextcolor"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/PushUpTv"
-        android:textAlignment="center"
-        android:text="0"
-        android:textSize="@dimen/size_of_counter"
-        android:textColor="@color/btntextcolor"
-        android:background="@color/countercolor"
-        android:layout_margin="@dimen/activity_vertical_margin"
-        />
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
+        <TextView
+            android:id="@+id/PushUpCountTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="0"
+            android:textSize="@dimen/size_of_counter"
+            android:textColor="@color/btntextcolor"
+            android:background="@color/countercolor"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            />
+        <TextView
+            android:id="@+id/SetCountTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="0"
+            android:textSize="@dimen/size_of_counter"
+            android:textColor="@color/btntextcolor"
+            android:background="@color/countercolor"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/ResetBtn"
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <Button
+            android:id="@+id/SaveSetBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SET COMPLETED"
+            android:textAlignment="center"
+            android:background="@color/green"
+            android:textColor="@color/btntextcolor"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            />
+        <Button
+            android:id="@+id/SaveWorkoutBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAVE WORKOUT"
+            android:textAlignment="center"
+            android:background="@color/red"
+            android:textColor="@color/btntextcolor"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/PushUpCountTv"
-        android:text="RESET"
-        android:textAlignment="center"
-        android:background="@color/countercolor"
-        android:textColor="@color/btntextcolor"
-        android:layout_margin="@dimen/activity_vertical_margin"
-        />
-    <Button
-        android:id="@+id/SaveBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/SetNumberEt"
-        android:text="SAVE"
-        android:textAlignment="center"
-        android:background="@color/countercolor"
-        android:textColor="@color/btntextcolor"
-        android:layout_margin="@dimen/activity_vertical_margin"
-        />
-    <EditText
-        android:id="@+id/SetNumberEt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ResetBtn"
-        android:layout_margin="@dimen/activity_vertical_margin"
-        android:textColor="@color/btntextcolor"
-        android:hint="Enter number of sets"
-        android:textColorHint="@color/btntextcolor"
-        />
-</RelativeLayout>
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <Button
+            android:id="@+id/ResetPushUpBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="RESET PUSHUP"
+            android:textAlignment="center"
+            android:background="@color/countercolor"
+            android:textColor="@color/btntextcolor"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            />
+        <Button
+            android:id="@+id/ResetSetBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="RESET SET"
+            android:textAlignment="center"
+            android:background="@color/countercolor"
+            android:textColor="@color/btntextcolor"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>

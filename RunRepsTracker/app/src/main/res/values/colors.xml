@@ -7,4 +7,6 @@
     <color name="countercolor">#F56106</color>
     <color name="apptextcolor">#F56106</color>
     <color name="btntextcolor">#FFFFFF</color>
+    <color name="green">#05a500</color>
+    <color name="red">#ce0000</color>
 </resources>

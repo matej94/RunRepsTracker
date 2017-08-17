@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/appbackground"
-        android:weightSum="1">
+        android:weightSum="2">
         <Chronometer
             android:id="@+id/chronometer"
             android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
             android:textAlignment="center"
             android:textColor="@color/btntextcolor"
             android:layout_margin="@dimen/activity_horizontal_margin"
-            android:layout_weight="0.50"
+            android:layout_weight="1"
             />
         <TextView
             android:id="@+id/distanceTv"
@@ -45,7 +45,7 @@
             android:textAlignment="center"
             android:textColor="@color/btntextcolor"
             android:layout_margin="@dimen/activity_horizontal_margin"
-            android:layout_weight="0.50"
+            android:layout_weight="1"
             />
     </LinearLayout>
 
@@ -54,7 +54,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:background="@color/appbackground"
-    android:weightSum="1"
+    android:weightSum="4"
     >
 
     <Button
@@ -63,9 +63,9 @@
         android:layout_height="wrap_content"
         android:text="START"
         android:textAlignment="center"
-        android:background="@color/countercolor"
+        android:background="@color/green"
         android:textColor="@color/btntextcolor"
-        android:layout_weight="0.25"
+        android:layout_weight="1"
         />
     <Button
         android:id="@+id/StopBtn"
@@ -73,9 +73,9 @@
         android:layout_height="wrap_content"
         android:text="STOP"
         android:textAlignment="center"
-        android:background="@color/countercolor"
+        android:background="@color/red"
         android:textColor="@color/btntextcolor"
-        android:layout_weight="0.25"
+        android:layout_weight="1"
         />
     <Button
         android:id="@+id/ResetBtn"
@@ -85,7 +85,7 @@
         android:textAlignment="center"
         android:background="@color/countercolor"
         android:textColor="@color/btntextcolor"
-        android:layout_weight="0.25"
+        android:layout_weight="1"
         />
     <Button
         android:id="@+id/SaveBtn"
@@ -95,7 +95,7 @@
         android:textAlignment="center"
         android:background="@color/countercolor"
         android:textColor="@color/btntextcolor"
-        android:layout_weight="0.25"
+        android:layout_weight="1"
         />
 </LinearLayout>
 

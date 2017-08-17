@@ -18,12 +18,12 @@ public class PushUpActivity extends AppCompatActivity implements SensorEventList
     public static final String KEY_SETS = "input sets";
 
 
-    TextView PushUpTv, PushUpCountTv;
-    EditText SetNumberEt;
-    Button ResetBtn, SaveBtn;
+    TextView PushUpTextTv,SetTextTv, PushUpCountTv,SetCountTv;
+    Button ResetSetBtn,ResetPushUpBtn, SaveWorkoutBtn,SaveSetBtn;
     SensorManager sensorManager;
     Sensor ProximitySensor;
     int PushUpCounter = 0;
+    int SetCounter = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,25 +33,43 @@ public class PushUpActivity extends AppCompatActivity implements SensorEventList
         setUpUI();
     }
         private void setUpUI(){
-        PushUpTv = (TextView) findViewById(R.id.PushUpTv);
-        ResetBtn = (Button) findViewById(R.id.ResetBtn);
-        SaveBtn = (Button) findViewById(R.id.SaveBtn);
-        SetNumberEt = (EditText) findViewById(R.id.SetNumberEt);
-        PushUpCountTv = (TextView) findViewById(R.id.PushUpCountTv);
-        ResetBtn.setOnClickListener(new View.OnClickListener() {
+            PushUpTextTv = (TextView) findViewById(R.id.PushUpTextTv);
+            SetTextTv = (TextView) findViewById(R.id.SetTextTv);
+            ResetPushUpBtn = (Button) findViewById(R.id.ResetPushUpBtn);
+            ResetSetBtn = (Button) findViewById(R.id.ResetSetBtn);
+            SaveWorkoutBtn = (Button) findViewById(R.id.SaveWorkoutBtn);
+            SaveSetBtn = (Button) findViewById(R.id.SaveSetBtn);
+            PushUpCountTv = (TextView) findViewById(R.id.PushUpCountTv);
+            SetCountTv = (TextView) findViewById(R.id.SetCountTv);
+            ResetPushUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PushUpCounter = 0;
                 PushUpCountTv.setText(String.valueOf(PushUpCounter));
             }
         });
-        SaveBtn.setOnClickListener(new View.OnClickListener() {
+            ResetSetBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SetCounter = 0;
+                    SetCountTv.setText(String.valueOf(SetCounter));
+                }
+            });
+            SaveSetBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SetCounter++;
+                    SetCountTv.setText(String.valueOf(SetCounter));
+
+                }
+            });
+        SaveWorkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String sPushUp = null, sSets = null;
 
                     sPushUp = PushUpCountTv.getText().toString();
-                    sSets = SetNumberEt.getText().toString();
+                    sSets = SetCountTv.getText().toString();
 
                     Intent explicitIntent = new Intent();
 
