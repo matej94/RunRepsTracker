@@ -43,6 +43,7 @@ public class SitUpAdapter extends BaseAdapter {
         }
 
         SitUp situp = this.mSitUps.get(position);
+        situpViewHolder.tvDate.setText("Date:" + situp.getDate());
         situpViewHolder.tvSitUp.setText("Number of SitUps per set:" + situp.getSitUp());
         situpViewHolder.tvSets.setText("Number of sets:" + situp.getSets());
         return convertView;
@@ -58,11 +59,13 @@ public class SitUpAdapter extends BaseAdapter {
     }
 
     public static class ViewHolder {
-        public TextView tvSitUp, tvSets;
+        public TextView tvSitUp, tvSets, tvDate;
 
         public ViewHolder(View situpView) {
             tvSitUp = (TextView) situpView.findViewById(R.id.tvSitUp);
             tvSets = (TextView) situpView.findViewById(R.id.tvSet);
+            tvDate = (TextView) situpView.findViewById(R.id.tvDate);
+
         }
     }
 }

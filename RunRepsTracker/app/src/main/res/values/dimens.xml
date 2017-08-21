@@ -3,6 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="size_of_app_title">16sp</dimen>
-    <dimen name="size_of_counter">80sp</dimen>
+    <dimen name="size_of_counter">50sp</dimen>
     <dimen name="quote_size">20sp</dimen>
+    <dimen name="reps">10sp</dimen>
 </resources>

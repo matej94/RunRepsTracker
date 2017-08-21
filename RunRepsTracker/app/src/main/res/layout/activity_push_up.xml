@@ -59,7 +59,7 @@
             android:text="0"
             android:textSize="@dimen/size_of_counter"
             android:textColor="@color/btntextcolor"
-            android:background="@color/countercolor"
+            android:background="@color/appbackground"
             android:layout_margin="@dimen/activity_vertical_margin"
             />
         <TextView
@@ -71,7 +71,7 @@
             android:text="0"
             android:textSize="@dimen/size_of_counter"
             android:textColor="@color/btntextcolor"
-            android:background="@color/countercolor"
+            android:background="@color/appbackground"
             android:layout_margin="@dimen/activity_vertical_margin"
             />
     </LinearLayout>
@@ -80,7 +80,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+        <TextView
+            android:id="@+id/RepsTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text=""
+            android:textSize="@dimen/reps"
+            android:textColor="@color/btntextcolor"
+            android:background="@color/appbackground"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            />
         <Button
             android:id="@+id/SaveSetBtn"
             android:layout_width="match_parent"
@@ -105,25 +115,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
+        android:orientation="horizontal">
         <Button
-            android:id="@+id/ResetPushUpBtn"
+            android:id="@+id/ResetWorkoutBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="RESET PUSHUP"
-            android:textAlignment="center"
-            android:background="@color/countercolor"
-            android:textColor="@color/btntextcolor"
-            android:layout_margin="@dimen/activity_vertical_margin"
-            />
-        <Button
-            android:id="@+id/ResetSetBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="RESET SET"
+            android:text="RESET WORKOUT"
             android:textAlignment="center"
             android:background="@color/countercolor"
             android:textColor="@color/btntextcolor"

@@ -35,12 +35,13 @@ public class RunDBHelper extends SQLiteOpenHelper {
     }
     //SQL statements
     static final String CREATE_TABLE_MY_RUN_RESULTS = "CREATE TABLE " + RunDBHelper.Schema.TABLE_MY_RUN_RESULTS +
-            " (" + RunDBHelper.Schema.ID + " INTEGER PRIMARY KEY, " + RunDBHelper.Schema.TIME + " TEXT, " + RunDBHelper.Schema.DIST + " TEXT);";
+            " (" + RunDBHelper.Schema.ID + " INTEGER PRIMARY KEY, " + RunDBHelper.Schema.DATE + " TEXT, " + RunDBHelper.Schema.TIME + " TEXT, " + RunDBHelper.Schema.DIST + " TEXT);";
     static final String DROP_TABLE_MY_RUN_RESULTS = "DROP TABLE IF EXISTS " + RunDBHelper.Schema.TABLE_MY_RUN_RESULTS;
-    static final String SELECT_ALL_RUN_RESULTS = "SELECT " + RunDBHelper.Schema.ID + "," + RunDBHelper.Schema.TIME + "," + RunDBHelper.Schema.DIST  + " FROM " + RunDBHelper.Schema.TABLE_MY_RUN_RESULTS;
+    static final String SELECT_ALL_RUN_RESULTS = "SELECT " + RunDBHelper.Schema.ID + "," + RunDBHelper.Schema.DATE + "," + RunDBHelper.Schema.TIME + "," + RunDBHelper.Schema.DIST  + " FROM " + RunDBHelper.Schema.TABLE_MY_RUN_RESULTS;
     // CRUD should be performed on another thread
     public void insertRunResult(Run run){
         ContentValues contentValues = new ContentValues();
+        contentValues.put(RunDBHelper.Schema.DATE, run.getDate());
         contentValues.put(RunDBHelper.Schema.TIME, run.getTime());
         contentValues.put(RunDBHelper.Schema.DIST, run.getDist());
         SQLiteDatabase writeableDatabase = this.getWritableDatabase();
@@ -54,9 +55,10 @@ public class RunDBHelper extends SQLiteOpenHelper {
         if(runCursor.moveToFirst()){
             do{
                 int fID = runCursor.getInt(0);
-                String fTime = runCursor.getString(1);
-                String fDist = runCursor.getString(2);
-                runs.add(new Run(fID,fTime, fDist));
+                String fdate = runCursor.getString(1);
+                String fTime = runCursor.getString(2);
+                String fDist = runCursor.getString(3);
+                runs.add(new Run(fID,fdate, fTime, fDist));
             }while(runCursor.moveToNext());
         }
         runCursor.close();
@@ -77,6 +79,7 @@ public class RunDBHelper extends SQLiteOpenHelper {
         private static final int SCHEMA_VERSION = 1;
         private static final String DATABASE_NAME = "run_results.db";
         static final String ID = "id";
+        static final String DATE = "date";
         static final String TABLE_MY_RUN_RESULTS = "my_run_results";
         static final String TIME = "time";
         static final String DIST = "dist";

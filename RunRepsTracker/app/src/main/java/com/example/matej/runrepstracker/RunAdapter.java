@@ -43,6 +43,7 @@ public class RunAdapter extends BaseAdapter {
         }
 
         Run run = this.mRuns.get(position);
+        runViewHolder.tvDate.setText("Date:" + run.getDate());
         runViewHolder.tvTime.setText("Time:" + run.getTime());
         runViewHolder.tvDist.setText("Distance:" + run.getDist());
         return convertView;
@@ -58,11 +59,12 @@ public class RunAdapter extends BaseAdapter {
     }
 
     public static class ViewHolder {
-        public TextView tvTime, tvDist;
+        public TextView tvTime, tvDist, tvDate;
 
         public ViewHolder(View runView) {
             tvTime = (TextView) runView.findViewById(R.id.tvTime);
             tvDist = (TextView) runView.findViewById(R.id.tvDist);
+            tvDate = (TextView) runView.findViewById(R.id.tvDate);
         }
     }
 }

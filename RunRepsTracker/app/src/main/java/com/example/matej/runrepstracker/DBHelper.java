@@ -33,12 +33,13 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     //SQL statements
     static final String CREATE_TABLE_MY_RESULTS = "CREATE TABLE " + Schema.TABLE_MY_RESULTS +
-            " (" + Schema.ID + " INTEGER PRIMARY KEY, " + Schema.PUSHUP + " TEXT, " + Schema.SETS + " TEXT);";
+            " (" + Schema.ID + " INTEGER PRIMARY KEY, " + Schema.DATE + " TEXT, " + Schema.PUSHUP + " TEXT, " + Schema.SETS + " TEXT);";
     static final String DROP_TABLE_MY_RESULTS = "DROP TABLE IF EXISTS " + Schema.TABLE_MY_RESULTS;
-    static final String SELECT_ALL_RESULTS = "SELECT " + Schema.ID + "," + Schema.PUSHUP + "," + Schema.SETS  + " FROM " + Schema.TABLE_MY_RESULTS;
+    static final String SELECT_ALL_RESULTS = "SELECT " + Schema.ID + "," + Schema.DATE + "," + Schema.PUSHUP + "," + Schema.SETS  + " FROM " + Schema.TABLE_MY_RESULTS;
     // CRUD should be performed on another thread
     public void insertResult(Result result){
         ContentValues contentValues = new ContentValues();
+        contentValues.put(Schema.DATE, result.getDate());
         contentValues.put(Schema.PUSHUP, result.getPushUp());
         contentValues.put(Schema.SETS, result.getSets());
         SQLiteDatabase writeableDatabase = this.getWritableDatabase();
@@ -52,9 +53,10 @@ public class DBHelper extends SQLiteOpenHelper {
         if(resultCursor.moveToFirst()){
             do{
                 int fID = resultCursor.getInt(0);
-                String fPushUp = resultCursor.getString(1);
-                String fSets = resultCursor.getString(2);
-                results.add(new Result(fID,fPushUp, fSets));
+                String fdate = resultCursor.getString(1);
+                String fPushUp = resultCursor.getString(2);
+                String fSets = resultCursor.getString(3);
+                results.add(new Result(fID,fdate, fPushUp, fSets));
             }while(resultCursor.moveToNext());
         }
         resultCursor.close();
@@ -75,6 +77,7 @@ public class DBHelper extends SQLiteOpenHelper {
         private static final int SCHEMA_VERSION = 1;
         private static final String DATABASE_NAME = "results.db";
         static final String ID = "id";
+        static final String DATE = "date";
         static final String TABLE_MY_RESULTS = "my_results";
         static final String PUSHUP = "pushup";
         static final String SETS = "sets";

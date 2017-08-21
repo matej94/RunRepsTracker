@@ -12,14 +12,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
 public class SitUpActivity extends AppCompatActivity implements SensorEventListener {
     public static final String KEY_SITUP = "input situp";
     public static final String KEY_SETS = "input sets";
 
-    TextView SitUpTextTv,SetTextTv, SitUpCountTv,SetCountTv;
-    Button ResetSetBtn,ResetSitUpBtn, SaveWorkoutBtn,SaveSetBtn;
+    TextView SitUpTextTv,SetTextTv, SitUpCountTv,SetCountTv,RepsTv;
+    Button ResetWorkoutBtn, SaveWorkoutBtn,SaveSetBtn;
     SensorManager sensorManager;
     Sensor AccelerometerSensor;
+    int i = 0;
+    String [] reps = new String[1];
     int SitUpCounter = 0;
     int SetCounter = 0;
 
@@ -33,34 +36,35 @@ public class SitUpActivity extends AppCompatActivity implements SensorEventListe
     }
 
     private void setUpUI(){
+        RepsTv = (TextView) findViewById(R.id.RepsTv);
         SitUpTextTv = (TextView) findViewById(R.id.SitUpTextTv);
         SetTextTv = (TextView) findViewById(R.id.SetTextTv);
-        ResetSitUpBtn = (Button) findViewById(R.id.ResetSitUpBtn);
-        ResetSetBtn = (Button) findViewById(R.id.ResetSetBtn);
+        ResetWorkoutBtn = (Button) findViewById(R.id.ResetWorkoutBtn);
         SaveWorkoutBtn = (Button) findViewById(R.id.SaveWorkoutBtn);
         SaveSetBtn = (Button) findViewById(R.id.SaveSetBtn);
         SitUpCountTv = (TextView) findViewById(R.id.SitUpCountTv);
         SetCountTv = (TextView) findViewById(R.id.SetCountTv);
 
-        ResetSitUpBtn.setOnClickListener(new View.OnClickListener() {
+        ResetWorkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SitUpCounter = 0;
                 SitUpCountTv.setText(String.valueOf(SitUpCounter));
-            }
-        });
-        ResetSetBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 SetCounter = 0;
                 SetCountTv.setText(String.valueOf(SetCounter));
+                RepsTv.setText("");
             }
         });
+
         SaveSetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SetCounter++;
                 SetCountTv.setText(String.valueOf(SetCounter));
+                reps[i]=SitUpCountTv.getText().toString();
+                RepsTv.append(reps[i]+ "   ");
+                SitUpCounter = 0;
+                SitUpCountTv.setText(String.valueOf(SitUpCounter));
 
             }
         });
@@ -68,9 +72,9 @@ public class SitUpActivity extends AppCompatActivity implements SensorEventListe
         SaveWorkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sSitUp = null, sSets = null;
+                String sSitUp,sSets;
 
-                sSitUp = SitUpCountTv.getText().toString();
+                sSitUp = RepsTv.getText().toString();
                 sSets = SetCountTv.getText().toString();
 
                 Intent explicitIntent = new Intent();

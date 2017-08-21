@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class SitUpHistoryActivity extends AppCompatActivity {
@@ -77,8 +78,10 @@ public class SitUpHistoryActivity extends AppCompatActivity {
             sSets = Intent.getStringExtra(SitUpActivity.KEY_SETS);
         }
 
-
-        SitUp situp = new SitUp(sSitUp, sSets);
+        long date = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss");
+        String sDate = sdf.format(date);
+        SitUp situp = new SitUp(sDate, sSitUp, sSets);
         SitUpDBHelper.getInstance(getApplicationContext()).insertSitUpResult(situp);
         SitUpAdapter adapter = (SitUpAdapter) lvSitUpHistory.getAdapter();
         adapter.insertSitUp(situp);

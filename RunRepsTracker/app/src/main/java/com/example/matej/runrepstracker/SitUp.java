@@ -8,15 +8,18 @@ public class SitUp {
     private String SitUp;
     private String Sets;
     int ID;
+    String date;
 
-    public SitUp(String fSitUp,String fSets){
+    public SitUp(String fdate, String fSitUp,String fSets){
         SitUp = fSitUp;
         Sets = fSets;
+        date = fdate;
     }
-    public SitUp(int fID,String fSitUp,String fSets){
+    public SitUp(int fID,String fdate, String fSitUp,String fSets){
         SitUp = fSitUp;
         Sets = fSets;
         ID = fID;
+        date = fdate;
     }
     public String getSitUp() {
         return SitUp;
@@ -26,4 +29,7 @@ public class SitUp {
         return Sets;
     }
     public int getID() { return ID;}
+    public String getDate() {
+        return date;
+    }
 }

@@ -115,7 +115,7 @@ public class RunActivity extends FragmentActivity implements OnMapReadyCallback,
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sTime = null, sDist = null;
+                String sTime, sDist;
 
                 sTime = mChronometer.getText().toString();
                 sDist = distanceTv.getText().toString();

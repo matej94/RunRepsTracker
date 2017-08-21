@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class PushUpHistoryActivity extends AppCompatActivity {
@@ -75,9 +76,11 @@ public class PushUpHistoryActivity extends AppCompatActivity {
         if (Intent.hasExtra(PushUpActivity.KEY_SETS)) {
             sSets = Intent.getStringExtra(PushUpActivity.KEY_SETS);
         }
+        long date = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss");
+        String sDate = sdf.format(date);
 
-
-        Result result = new Result(sPushUp, sSets);
+        Result result = new Result(sDate, sPushUp, sSets);
         DBHelper.getInstance(getApplicationContext()).insertResult(result);
         ResultAdapter adapter = (ResultAdapter) lvPushUpHistory.getAdapter();
         adapter.insert(result);

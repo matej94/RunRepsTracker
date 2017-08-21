@@ -47,6 +47,7 @@ public class ResultAdapter extends BaseAdapter {
         }
 
         Result result = this.mResults.get(position);
+        resultViewHolder.tvDate.setText("Date:" + result.getDate());
         resultViewHolder.tvPushUp.setText("Number of PushUps per set:" + result.getPushUp());
         resultViewHolder.tvSets.setText("Number of sets:" + result.getSets());
         return convertView;
@@ -63,11 +64,12 @@ public class ResultAdapter extends BaseAdapter {
     }
 
     public static class ViewHolder {
-        public TextView tvPushUp, tvSets;
+        public TextView tvPushUp, tvSets, tvDate;
 
         public ViewHolder(View resultView) {
             tvPushUp = (TextView) resultView.findViewById(R.id.tvPushUp);
             tvSets = (TextView) resultView.findViewById(R.id.tvSet);
+            tvDate = (TextView) resultView.findViewById(R.id.tvDate);
         }
     }
 }

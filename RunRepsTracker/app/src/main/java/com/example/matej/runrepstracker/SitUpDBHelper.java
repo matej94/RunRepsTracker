@@ -35,12 +35,13 @@ public class SitUpDBHelper extends SQLiteOpenHelper {
     }
     //SQL statements
     static final String CREATE_TABLE_MY_SITUP_RESULTS = "CREATE TABLE " + SitUpDBHelper.Schema.TABLE_MY_SITUP_RESULTS +
-            " (" + SitUpDBHelper.Schema.ID + " INTEGER PRIMARY KEY, " + SitUpDBHelper.Schema.SITUP + " TEXT, " + SitUpDBHelper.Schema.SETS + " TEXT);";
+            " (" + SitUpDBHelper.Schema.ID + " INTEGER PRIMARY KEY, " + SitUpDBHelper.Schema.DATE + " TEXT, " + SitUpDBHelper.Schema.SITUP + " TEXT, " + SitUpDBHelper.Schema.SETS + " TEXT);";
     static final String DROP_TABLE_MY_SITUP_RESULTS = "DROP TABLE IF EXISTS " + SitUpDBHelper.Schema.TABLE_MY_SITUP_RESULTS;
-    static final String SELECT_ALL_SITUP_RESULTS = "SELECT " + SitUpDBHelper.Schema.ID + "," + SitUpDBHelper.Schema.SITUP + "," + SitUpDBHelper.Schema.SETS  + " FROM " + SitUpDBHelper.Schema.TABLE_MY_SITUP_RESULTS;
+    static final String SELECT_ALL_SITUP_RESULTS = "SELECT " + SitUpDBHelper.Schema.ID + "," + SitUpDBHelper.Schema.DATE + "," + SitUpDBHelper.Schema.SITUP + "," + SitUpDBHelper.Schema.SETS  + " FROM " + SitUpDBHelper.Schema.TABLE_MY_SITUP_RESULTS;
     // CRUD should be performed on another thread
     public void insertSitUpResult(SitUp situp){
         ContentValues contentValues = new ContentValues();
+        contentValues.put(SitUpDBHelper.Schema.DATE, situp.getDate());
         contentValues.put(SitUpDBHelper.Schema.SITUP, situp.getSitUp());
         contentValues.put(SitUpDBHelper.Schema.SETS, situp.getSets());
         SQLiteDatabase writeableDatabase = this.getWritableDatabase();
@@ -54,9 +55,10 @@ public class SitUpDBHelper extends SQLiteOpenHelper {
         if(situpCursor.moveToFirst()){
             do{
                 int fID = situpCursor.getInt(0);
-                String fSitUp = situpCursor.getString(1);
-                String fSets = situpCursor.getString(2);
-                situps.add(new SitUp(fID,fSitUp, fSets));
+                String fdate = situpCursor.getString(1);
+                String fSitUp = situpCursor.getString(2);
+                String fSets = situpCursor.getString(3);
+                situps.add(new SitUp(fID,fdate, fSitUp, fSets));
             }while(situpCursor.moveToNext());
         }
         situpCursor.close();
@@ -77,6 +79,7 @@ public class SitUpDBHelper extends SQLiteOpenHelper {
         private static final int SCHEMA_VERSION = 1;
         private static final String DATABASE_NAME = "situp_results.db";
         static final String ID = "id";
+        static final String DATE = "date";
         static final String TABLE_MY_SITUP_RESULTS = "my_situp_results";
         static final String SITUP = "situp";
         static final String SETS = "sets";

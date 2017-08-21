@@ -8,15 +8,18 @@ public class Run {
     private String Time;
     private String Dist;
     int ID;
+    String date;
 
-    public Run (String fTime, String fDist){
+    public Run (String fdate,String fTime, String fDist){
         Time = fTime;
         Dist = fDist;
+        date = fdate;
     }
-    public Run(int fID, String fTime, String fDist){
+    public Run(int fID,String fdate, String fTime, String fDist){
         Time = fTime;
         Dist = fDist;
         ID = fID;
+        date = fdate;
     }
     public String getTime() {
         return Time;
@@ -26,5 +29,8 @@ public class Run {
         return Dist;
     }
     public int getID() { return ID;}
+    public String getDate() {
+        return date;
+    }
 
 }

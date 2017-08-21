@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class RunHistoryActivity extends AppCompatActivity {
@@ -76,8 +77,10 @@ public class RunHistoryActivity extends AppCompatActivity {
             sDist = Intent.getStringExtra(RunActivity.KEY_DIST);
         }
 
-
-        Run run = new Run(sTime, sDist);
+        long date = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss");
+        String sDate = sdf.format(date);
+        Run run = new Run(sDate, sTime, sDist);
         RunDBHelper.getInstance(getApplicationContext()).insertRunResult(run);
         RunAdapter adapter = (RunAdapter) lvRunHistory.getAdapter();
         adapter.insertRun(run);
