@@ -19,7 +19,7 @@
     <string name="about_result">
     The ResultHistory button opens a new screen that provides the option to select the history of pushup, situp, and running results.
     </string>
-    <string name="results_quote" >
+    <string name="results_quote">
         “Results happen\n over time,\n not overnight.\n Work hard, stay consistent\n and\n be patient.”
     </string>
 </resources>

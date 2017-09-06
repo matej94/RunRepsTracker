@@ -100,8 +100,8 @@ public class SitUpActivity extends AppCompatActivity implements SensorEventListe
         if (zi > 6 && zi < 9) {
             SitUpCounter++;
             SitUpCountTv.setText(String.valueOf(SitUpCounter));
+            }
 
-        }
     }
 
     @Override

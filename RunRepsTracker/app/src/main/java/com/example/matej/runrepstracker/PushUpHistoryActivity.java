@@ -35,7 +35,6 @@ public class PushUpHistoryActivity extends AppCompatActivity {
 
                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(PushUpHistoryActivity.this);
                 dialogBuilder.setMessage("Do you want to delete result?");
-                //dialogBuilder.setCancelable(true);
 
                 dialogBuilder.setPositiveButton(
                         "Yes",

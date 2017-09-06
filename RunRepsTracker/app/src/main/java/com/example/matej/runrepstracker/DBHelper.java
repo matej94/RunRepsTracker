@@ -31,12 +31,11 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(DROP_TABLE_MY_RESULTS);
         this.onCreate(db);
     }
-    //SQL statements
     static final String CREATE_TABLE_MY_RESULTS = "CREATE TABLE " + Schema.TABLE_MY_RESULTS +
             " (" + Schema.ID + " INTEGER PRIMARY KEY, " + Schema.DATE + " TEXT, " + Schema.PUSHUP + " TEXT, " + Schema.SETS + " TEXT);";
     static final String DROP_TABLE_MY_RESULTS = "DROP TABLE IF EXISTS " + Schema.TABLE_MY_RESULTS;
     static final String SELECT_ALL_RESULTS = "SELECT " + Schema.ID + "," + Schema.DATE + "," + Schema.PUSHUP + "," + Schema.SETS  + " FROM " + Schema.TABLE_MY_RESULTS;
-    // CRUD should be performed on another thread
+
     public void insertResult(Result result){
         ContentValues contentValues = new ContentValues();
         contentValues.put(Schema.DATE, result.getDate());

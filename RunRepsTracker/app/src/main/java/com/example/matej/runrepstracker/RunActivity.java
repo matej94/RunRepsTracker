@@ -2,11 +2,13 @@ package com.example.matej.runrepstracker;
 
 import android.*;
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Build;
+import android.os.PowerManager;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -110,6 +112,7 @@ public class RunActivity extends FragmentActivity implements OnMapReadyCallback,
                 lastPause = 0;
                 mStartButton.setEnabled(true);
                 mStopButton.setEnabled(false);
+
             }
         });
         mSaveButton.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +131,6 @@ public class RunActivity extends FragmentActivity implements OnMapReadyCallback,
                 startActivity(explicitIntent);
             }
         });
-
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -173,7 +175,7 @@ public class RunActivity extends FragmentActivity implements OnMapReadyCallback,
     @Override
     protected void onPause() {
         super.onPause();
-        stopLocationUpdates();
+        startLocationUpdates();
     }
 
     @Override

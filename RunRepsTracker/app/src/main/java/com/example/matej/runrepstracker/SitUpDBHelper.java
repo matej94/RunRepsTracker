@@ -33,12 +33,11 @@ public class SitUpDBHelper extends SQLiteOpenHelper {
         db.execSQL(DROP_TABLE_MY_SITUP_RESULTS);
         this.onCreate(db);
     }
-    //SQL statements
     static final String CREATE_TABLE_MY_SITUP_RESULTS = "CREATE TABLE " + SitUpDBHelper.Schema.TABLE_MY_SITUP_RESULTS +
             " (" + SitUpDBHelper.Schema.ID + " INTEGER PRIMARY KEY, " + SitUpDBHelper.Schema.DATE + " TEXT, " + SitUpDBHelper.Schema.SITUP + " TEXT, " + SitUpDBHelper.Schema.SETS + " TEXT);";
     static final String DROP_TABLE_MY_SITUP_RESULTS = "DROP TABLE IF EXISTS " + SitUpDBHelper.Schema.TABLE_MY_SITUP_RESULTS;
     static final String SELECT_ALL_SITUP_RESULTS = "SELECT " + SitUpDBHelper.Schema.ID + "," + SitUpDBHelper.Schema.DATE + "," + SitUpDBHelper.Schema.SITUP + "," + SitUpDBHelper.Schema.SETS  + " FROM " + SitUpDBHelper.Schema.TABLE_MY_SITUP_RESULTS;
-    // CRUD should be performed on another thread
+
     public void insertSitUpResult(SitUp situp){
         ContentValues contentValues = new ContentValues();
         contentValues.put(SitUpDBHelper.Schema.DATE, situp.getDate());

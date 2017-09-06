@@ -33,12 +33,11 @@ public class RunDBHelper extends SQLiteOpenHelper {
         db.execSQL(DROP_TABLE_MY_RUN_RESULTS);
         this.onCreate(db);
     }
-    //SQL statements
     static final String CREATE_TABLE_MY_RUN_RESULTS = "CREATE TABLE " + RunDBHelper.Schema.TABLE_MY_RUN_RESULTS +
             " (" + RunDBHelper.Schema.ID + " INTEGER PRIMARY KEY, " + RunDBHelper.Schema.DATE + " TEXT, " + RunDBHelper.Schema.TIME + " TEXT, " + RunDBHelper.Schema.DIST + " TEXT);";
     static final String DROP_TABLE_MY_RUN_RESULTS = "DROP TABLE IF EXISTS " + RunDBHelper.Schema.TABLE_MY_RUN_RESULTS;
     static final String SELECT_ALL_RUN_RESULTS = "SELECT " + RunDBHelper.Schema.ID + "," + RunDBHelper.Schema.DATE + "," + RunDBHelper.Schema.TIME + "," + RunDBHelper.Schema.DIST  + " FROM " + RunDBHelper.Schema.TABLE_MY_RUN_RESULTS;
-    // CRUD should be performed on another thread
+
     public void insertRunResult(Run run){
         ContentValues contentValues = new ContentValues();
         contentValues.put(RunDBHelper.Schema.DATE, run.getDate());

@@ -34,7 +34,6 @@ public class RunHistoryActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(RunHistoryActivity.this);
                 dialogBuilder.setMessage("Do you want to delete result?");
-                //dialogBuilder.setCancelable(true);
 
                 dialogBuilder.setPositiveButton(
                         "Yes",
