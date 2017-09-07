@@ -93,15 +93,14 @@ public class SitUpActivity extends AppCompatActivity implements SensorEventListe
         float y = event.values[1];
         float z = event.values[2];
 
-        int xi = Math.round(x);
-        int yi = Math.round(y);
+
         int zi = Math.round(z);
 
-        if (zi > 6 && zi < 9) {
+        if (zi > 5 && zi < 8) {
             SitUpCounter++;
             SitUpCountTv.setText(String.valueOf(SitUpCounter));
-            }
 
+        }
     }
 
     @Override
